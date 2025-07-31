@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Verificando elegibilidade para o Saque-Aniversário...',
                 'Analisando seu saldo e histórico de trabalho...',
                 'Calculando a melhor proposta de antecipação...',
-                'Concluindo a análise inteligente...'
+                'Concluindo a análise do sistema...'
             ];
             let currentMessageIndex = 0;
             if (loadingSteps) loadingSteps.textContent = messages[currentMessageIndex];
@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                         if (hasValue) {
                             if (outcomeTitle) outcomeTitle.textContent = '🎉 Proposta Aprovada!';
-                            if (outcomeText) outcomeText.innerHTML = 'Parabéns! Nossa IA encontrou um valor disponível para você. Prossiga para os próximos passos e libere seu saque.';
+                            if (outcomeText) outcomeText.innerHTML = 'Parabéns! Nosso sistema encontrou um valor disponível para você. Prossiga para os próximos passos e libere seu saque.';
                             if (simulationOutcomeMessage) simulationOutcomeMessage.style.display = 'block';
 
                             const continueButton = document.createElement('button');
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             actionButtonsContainer.appendChild(continueButton);
                         } else {
                             if (outcomeTitle) outcomeTitle.textContent = '😔 Sem Saldo Disponível no Momento.';
-                            if (outcomeText) outcomeText.innerHTML = 'Nossa IA não identificou valores disponíveis para saque-aniversário neste momento. Para mais informações, fale com nosso especialista.';
+                            if (outcomeText) outcomeText.innerHTML = 'Nosso sistema não identificou valores disponíveis para saque-aniversário neste momento. Para mais informações, fale com nosso especialista.';
                             if (simulationOutcomeMessage) simulationOutcomeMessage.style.display = 'block';
 
                             const whatsappSupportButton = document.createElement('button');
