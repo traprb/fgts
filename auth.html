@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autorizar FGTS</title>
+    <!-- Inclui a fonte Roboto e ícones do Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Vincula o arquivo de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Cabeçalho da Página -->
+    <header class="header">
+        <button class="back-button interactive"><i class="fas fa-arrow-left"></i></button>
+        <h2>Autorizar FGTS</h2>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="content-container">
+        <h3>Autorize o FGTS</h3>
+        <p class="description-text">
+            Siga os passos abaixo no seu aplicativo do FGTS para nos autorizar a consultar seu saldo e prosseguir.
+        </p>
+
+        <!-- Bloco de instrução 1 -->
+        <div class="instruction-block interactive">
+            <div class="icon-circle"><i class="fas fa-user-check"></i></div>
+            <div class="text-content">
+                <h4>1. Acesse o App</h4>
+                <p>Abra o aplicativo oficial do FGTS e clique em "Saque-Aniversário".</p>
+            </div>
+        </div>
+
+        <!-- Bloco de instrução 2 -->
+        <div class="instruction-block interactive">
+            <div class="icon-circle"><i class="fas fa-exchange-alt"></i></div>
+            <div class="text-content">
+                <h4>2. Selecione a Modalidade</h4>
+                <p>Opte pela modalidade "Saque-Aniversário". Se já estiver, prossiga para o próximo passo.</p>
+            </div>
+        </div>
+
+        <!-- Bloco de instrução 3 -->
+        <div class="instruction-block interactive">
+            <div class="icon-circle"><i class="fas fa-key"></i></div>
+            <div class="text-content">
+                <h4>3. Autorize-nos</h4>
+                <p>Vá para "Autorizar bancos a consultarem seu FGTS" e adicione a "Saque Aqui S.A."</p>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>
+                <strong>Importante:</strong> Ao nos autorizar, estamos apenas liberados para consultar seu saldo.
+                Você não será cobrado e a operação só será efetuada após a sua aprovação final.
+            </p>
+        </div>
+    </main>
+
+    <!-- Barra de botões fixa na parte inferior -->
+    <div class="fixed-bottom-bar">
+        <button id="authButton" class="main-button interactive">
+            <i class="fas fa-check-circle"></i> Já Autorizei
+        </button>
+    </div>
+
+    <!-- Vincula o arquivo de scripts -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

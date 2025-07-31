@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saque Aqui - Seu FGTS Descomplicado</title>
+    <!-- Inclui a fonte Roboto do Google Fonts para um design limpo e moderno -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Inclui ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Vincula o arquivo de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="splash-screen">
+
+    <!-- Conteúdo da SPLASH SCREEN (visível primeiro) -->
+    <div id="splashContainer" class="splash-container">
+        <h1 class="splash-logo">Saque Aqui</h1>
+        <div class="splash-spinner"></div>
+        <p class="splash-message">Carregando as melhores oportunidades...</p>
+    </div>
+
+    <!-- Conteúdo da WELCOME SCREEN (inicialmente oculto, revelado por JS) -->
+    <main id="welcomeContent" class="welcome-screen-content">
+        <div class="welcome-container">
+            <h1 class="welcome-logo fade-in-down">Saque Aqui</h1>
+            <p class="slogan fade-in-up delay-2">
+                Libere seu FGTS de forma rápida, segura e totalmente online.
+                É fácil, sem burocracia e direto no seu celular!
+            </p>
+
+            <div class="security-badges fade-in-up delay-3">
+                <span class="security-badge"><i class="fas fa-shield-alt"></i> 100% Seguro</span>
+                <span class="security-badge"><i class="fas fa-lock"></i> Dados Protegidos</span>
+                <span class="security-badge"><i class="fas fa-user-check"></i> Credibilidade</span>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-item fade-in-up delay-4">
+                    <i class="fas fa-money-bill-wave"></i>
+                    <p>Antecipe seu Saque-Aniversário</p>
+                </div>
+                <div class="feature-item fade-in-up delay-4">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <p>Sem Consulta ao SPC/Serasa</p>
+                </div>
+                <div class="feature-item fade-in-up delay-5">
+                    <i class="fas fa-mobile-alt"></i>
+                    <p>Processo 100% Digital</p>
+                </div>
+                <div class="feature-item fade-in-up delay-5">
+                    <i class="fas fa-clock"></i>
+                    <p>Dinheiro Rápido na Conta</p>
+                </div>
+            </div>
+
+            <p class="trust-section fade-in-up delay-6">
+                <i class="fas fa-check-circle"></i> Milhares de clientes satisfeitos!
+            </p>
+
+            <div class="action-buttons-container fade-in-up delay-7">
+                <button id="startButton" class="main-button interactive">
+                    <i class="fas fa-play-circle"></i> Começar Agora!
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Vincula o arquivo de scripts -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coletar Dados Finais</title>
+    <!-- Inclui a fonte Roboto e ícones do Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Vincula o arquivo de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Cabeçalho da Página -->
+    <header class="header">
+        <button class="back-button interactive"><i class="fas fa-arrow-left"></i></button>
+        <h2>Finalizar Solicitação</h2>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="content-container">
+        <h3>Quase lá!</h3>
+        <p class="description-text">
+            Preencha os dados abaixo para que um especialista entre em contato via WhatsApp e finalize o seu saque.
+        </p>
+
+        <!-- Formulário de Coleta de Dados -->
+        <div class="form-group">
+            <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
+            <input type="tel" id="cpf" placeholder="Ex: 123.456.789-00" maxlength="14">
+            <span id="cpfFeedback" class="input-feedback"></span>
+        </div>
+        
+        <div class="form-group">
+            <label for="dob"><i class="fas fa-calendar-alt"></i> Data de Nascimento</label>
+            <input type="date" id="dob">
+            <span id="dobFeedback" class="input-feedback"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="phone"><i class="fas fa-mobile-alt"></i> Celular</label>
+            <input type="tel" id="phone" placeholder="Ex: (99) 99999-9999" maxlength="16">
+            <span id="phoneFeedback" class="input-feedback"></span>
+        </div>
+
+        <div class="wide-info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>
+                As informações são protegidas e usadas apenas para processar seu pedido. Não compartilhamos com terceiros.
+            </p>
+        </div>
+    </main>
+
+    <!-- Barra de botões fixa na parte inferior -->
+    <div class="fixed-bottom-bar">
+        <button id="finalizeWhatsappButton" class="main-button whatsapp interactive">
+            <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
+        </button>
+    </div>
+
+    <!-- Vincula o arquivo de scripts -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

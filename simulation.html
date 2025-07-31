@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulação de Saque</title>
+    <!-- Inclui a fonte Roboto e ícones do Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght=300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Vincula o arquivo de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Cabeçalho da Página -->
+    <header class="header">
+        <button class="back-button interactive"><i class="fas fa-arrow-left"></i></button>
+        <h2>Simular Saque</h2>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="content-container">
+
+        <!-- Formulário para Simulação (visível primeiro) -->
+        <div id="cpfSimulationGroup">
+            <h3>Simule seu Saque</h3>
+            <p class="description-text">
+                Para consultar seu saldo disponível, insira seu CPF abaixo.
+            </p>
+            <div class="form-group">
+                <label for="cpfSimulation"><i class="fas fa-id-card"></i> CPF</label>
+                <input type="tel" id="cpfSimulation" placeholder="Ex: 123.456.789-00" maxlength="14">
+                <span id="cpfSimulationFeedback" class="input-feedback"></span>
+            </div>
+        </div>
+
+        <!-- Indicador de Carregamento (oculto por padrão, visível durante a simulação) -->
+        <div id="loadingIndicator" class="loading-indicator">
+            <div class="spinner"></div>
+            <p>Estamos consultando seu FGTS...</p>
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+            <p class="loading-steps">Etapa 1 de 3: Validando CPF e elegibilidade...</p>
+        </div>
+
+        <!-- Mensagem de Resultado da Simulação (oculta por padrão) -->
+        <div id="simulationOutcomeMessage" class="simulation-outcome-message">
+            <h3 id="outcomeTitle"></h3>
+            <p id="outcomeText"></p>
+            <div id="actionButtonsContainer" class="action-buttons-container">
+                <!-- Botões gerados via JS -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Barra de botões fixa na parte inferior (visível apenas para o formulário inicial) -->
+    <div id="bottomButtonContainer" class="fixed-bottom-bar">
+        <button id="simulateCpfButton" class="main-button interactive">
+            <i class="fas fa-search-dollar"></i> Simular Saque com CPF
+        </button>
+    </div>
+
+    <!-- Vincula o arquivo de scripts -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
