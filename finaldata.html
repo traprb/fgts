@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coletar Dados Finais</title>
-    <!-- Inclui a fonte Roboto e ícones do Font Awesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Inclui as fontes Poppins e Roboto -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- Inclui ícones do Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Vincula o arquivo de estilos -->
     <link rel="stylesheet" href="css/styles.css">
@@ -20,41 +21,43 @@
 
     <!-- Conteúdo Principal -->
     <main class="content-container">
-        <h3>Quase lá!</h3>
-        <p class="description-text">
-            Preencha os dados abaixo para que um especialista entre em contato via WhatsApp e finalize o seu saque.
-        </p>
-
-        <!-- Formulário de Coleta de Dados -->
-        <div class="form-group">
-            <label for="cpf"><i class="fas fa-id-card"></i> CPF</label>
-            <input type="tel" id="cpf" placeholder="Ex: 123.456.789-00" maxlength="14">
-            <span id="cpfFeedback" class="input-feedback"></span>
-        </div>
-        
-        <div class="form-group">
-            <label for="dob"><i class="fas fa-calendar-alt"></i> Data de Nascimento</label>
-            <input type="date" id="dob">
-            <span id="dobFeedback" class="input-feedback"></span>
-        </div>
-
-        <div class="form-group">
-            <label for="phone"><i class="fas fa-mobile-alt"></i> Celular</label>
-            <input type="tel" id="phone" placeholder="Ex: (99) 99999-9999" maxlength="16">
-            <span id="phoneFeedback" class="input-feedback"></span>
-        </div>
-
-        <div class="wide-info-box">
-            <i class="fas fa-info-circle"></i>
-            <p>
-                As informações são protegidas e usadas apenas para processar seu pedido. Não compartilhamos com terceiros.
+        <div class="form-card card">
+            <h3>Quase lá!</h3>
+            <p class="description-text">
+                Preencha os dados abaixo para que um especialista entre em contato via WhatsApp e finalize seu saque.
             </p>
+
+            <!-- Formulário de Coleta de Dados com Input Flutuante -->
+            <div class="form-group form-floating">
+                <input type="tel" id="cpf" placeholder=" " maxlength="14">
+                <label for="cpf">CPF</label>
+                <span id="cpfFeedback" class="input-feedback"></span>
+            </div>
+            
+            <div class="form-group form-floating">
+                <input type="date" id="dob" placeholder=" ">
+                <label for="dob">Data de Nascimento</label>
+                <span id="dobFeedback" class="input-feedback"></span>
+            </div>
+
+            <div class="form-group form-floating">
+                <input type="tel" id="phone" placeholder=" " maxlength="16">
+                <label for="phone">Celular</label>
+                <span id="phoneFeedback" class="input-feedback"></span>
+            </div>
+
+            <div class="wide-info-box card">
+                <i class="fas fa-info-circle"></i>
+                <p>
+                    As informações são protegidas e usadas apenas para processar seu pedido. Não compartilhamos com terceiros.
+                </p>
+            </div>
         </div>
     </main>
 
     <!-- Barra de botões fixa na parte inferior -->
     <div class="fixed-bottom-bar">
-        <button id="finalizeWhatsappButton" class="main-button whatsapp interactive">
+        <button id="finalizeWhatsappButton" class="main-button interactive primary-orange">
             <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
         </button>
     </div>
