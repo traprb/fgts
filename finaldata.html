@@ -4,22 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Coletar Dados Finais</title>
-    <!-- Inclui as fontes Poppins e Roboto -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Inclui ícones do Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Vincula o arquivo de estilos -->
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- Cabeçalho da Página -->
     <header class="header">
         <button class="back-button interactive"><i class="fas fa-arrow-left"></i></button>
         <h2>Finalizar Solicitação</h2>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main class="content-container">
         <div class="form-card card">
             <h3>Quase lá!</h3>
@@ -27,7 +22,6 @@
                 Preencha os dados abaixo para que um especialista entre em contato via WhatsApp e finalize seu saque.
             </p>
 
-            <!-- Formulário de Coleta de Dados com Input Flutuante -->
             <div class="form-group form-floating">
                 <input type="tel" id="cpf" placeholder=" " maxlength="14">
                 <label for="cpf">CPF</label>
@@ -55,14 +49,12 @@
         </div>
     </main>
 
-    <!-- Barra de botões fixa na parte inferior -->
     <div class="fixed-bottom-bar">
         <button id="finalizeWhatsappButton" class="main-button interactive primary-orange">
             <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
         </button>
     </div>
 
-    <!-- Vincula o arquivo de scripts -->
     <script src="js/scripts.js"></script>
 </body>
 </html>
