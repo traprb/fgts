@@ -15,13 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
         'privacy-page': document.getElementById('privacy-page')
     };
     let currentPageId = 'welcome-page';
+    let pageHistory = ['welcome-page'];
 
     /**
      * Navega para uma nova página e atualiza o histórico do navegador.
      * @param {string} pageId - O ID da página de destino.
-     * @param {boolean} pushState - Se deve adicionar uma nova entrada ao histórico.
+     * @param {boolean} isBackNavigation - Se a navegação é para trás.
      */
-    const navigateTo = (pageId, pushState = true) => {
+    const navigateTo = (pageId, isBackNavigation = false) => {
         if (!pages[pageId] || currentPageId === pageId) {
             return;
         }
@@ -39,22 +40,24 @@ document.addEventListener('DOMContentLoaded', () => {
         // Atualiza o estado da navegação inferior
         updateNavBar(pageId);
 
-        // Atualiza o histórico do navegador para o botão de voltar funcionar
-        if (pushState) {
-            window.history.pushState({ page: pageId }, '', `#${pageId}`);
+        // Gerencia o histórico de páginas
+        if (!isBackNavigation) {
+            pageHistory.push(pageId);
+        } else {
+            pageHistory.pop(); // Remove a página atual para voltar à anterior
         }
     };
 
-    // Lida com o botão de voltar do navegador
-    window.addEventListener('popstate', (event) => {
-        const state = event.state;
-        if (state && state.page) {
-            navigateTo(state.page, false);
-        } else {
-            // Se não houver estado, volta para a tela inicial
-            navigateTo('welcome-page', false);
+    /**
+     * Gerencia a navegação de retorno.
+     */
+    const goBack = () => {
+        if (pageHistory.length > 1) {
+            pageHistory.pop();
+            const prevPageId = pageHistory[pageHistory.length - 1];
+            navigateTo(prevPageId, true);
         }
-    });
+    };
 
     /**
      * Atualiza o estado visual da barra de navegação inferior.
@@ -78,8 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Inicializa a página correta com base na URL
-    const initialPage = window.location.hash.substring(1) || 'welcome-page';
-    navigateTo(initialPage, false);
+    navigateTo('welcome-page', false);
 
 
     // ===================================================
@@ -91,6 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const authButton = document.getElementById('authButton');
     const simulateCpfButton = document.getElementById('simulateCpfButton');
     const finalizeWhatsappButton = document.getElementById('finalizeWhatsappButton');
+    const backButtons = document.querySelectorAll('.back-button');
 
     const cpfSimulationInput = document.getElementById('cpfSimulation');
     const cpfSimulationFeedback = document.getElementById('cpfSimulationFeedback');
@@ -105,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const outcomeText = document.getElementById('outcomeText');
     const outcomeIcon = document.getElementById('outcomeIcon');
     const actionButtonsContainer = document.getElementById('actionButtonsContainer');
-    const bottomButtonContainer = document.querySelector('#auth-page .fixed-bottom-bar, #finaldata-page .fixed-bottom-bar');
 
     const cpfInput = document.getElementById('cpf');
     const dobInput = document.getElementById('dob');
@@ -193,6 +195,15 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 navigateTo(targetPage);
             }, 300);
+        });
+    });
+
+    // Event listeners para os botões de voltar
+    backButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            applyClickEffect(button);
+            const prevPageId = button.getAttribute('data-prev-page');
+            setTimeout(() => { navigateTo(prevPageId, true); }, 300);
         });
     });
 
@@ -287,7 +298,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 applyClickEffect(tryAgainButton);
                                 setTimeout(() => {
                                     simulationOutcomeMessage.style.display = 'none';
-                                    cpfSimulationGroup.style.display = 'block';
+                                    cpfSimulationGroup.style.display = 'flex';
                                     cpfSimulationInput.value = '';
                                     cpfSimulationInput.focus();
                                 }, 300);
