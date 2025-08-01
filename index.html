@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saque Aqui</title>
+    <!-- Fontes Google para um visual profissional -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Ícones para enriquecer a experiência -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Link para o CSS de estilo redesenhado -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="mobile-app">
+
+    <!-- Menu de navegação lateral (Sidebar) -->
+    <nav id="nav-menu" class="nav-menu">
+        <header class="nav-header">
+            <h3 class="nav-title">Saque Aqui</h3>
+            <button class="menu-toggle-close interactive"><i class="fas fa-times"></i></button>
+        </header>
+        <ul class="nav-list">
+            <li><a href="#" class="nav-link interactive" data-target="welcome-page"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="#" class="nav-link interactive" data-target="simulation-page"><i class="fas fa-search-dollar"></i> Simular Saque</a></li>
+            <li><a href="#" class="nav-link interactive" data-target="finaldata-page"><i class="fas fa-check-circle"></i> Finalizar Solicitação</a></li>
+            <li><a href="#" class="nav-link interactive" data-target="privacy-page"><i class="fas fa-user-shield"></i> Política de Privacidade</a></li>
+        </ul>
+        <div class="nav-footer">
+            <button id="whatsappSupport" class="main-button interactive"><i class="fab fa-whatsapp"></i> Suporte WhatsApp</button>
+        </div>
+    </nav>
+
+    <!-- Overlay para o menu lateral -->
+    <div id="menu-overlay" class="menu-overlay"></div>
+
+    <!-- Container principal que simula a tela do celular -->
+    <main class="mobile-container">
+        
+        <!-- ============================== -->
+        <!-- ===== TELA 1: BEM-VINDO ===== -->
+        <!-- ============================== -->
+        <div id="welcome-page" class="app-page active">
+            <div class="welcome-card animated-fade-in-down">
+                <h1 class="app-title">Saque Aqui</h1>
+                <p class="app-subtitle">Sua antecipação de FGTS simples e rápida</p>
+                
+                <!-- Animação do ícone -->
+                <div class="hero-icon animated-fade-in-up delay-1">
+                    <svg viewBox="0 0 100 100" class="hero-svg">
+                        <defs>
+                            <linearGradient id="moneyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#28a745;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#1c7430;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path class="money-icon money-1" d="M70,30 L75,25 L70,20 L65,25 Z" fill="url(#moneyGradient)"/>
+                        <path class="money-icon money-2" d="M30,40 L35,35 L30,30 L25,35 Z" fill="url(#moneyGradient)"/>
+                        <path class="money-icon money-3" d="M55,60 L60,55 L55,50 L50,55 Z" fill="url(#moneyGradient)"/>
+                    </svg>
+                    <i class="fas fa-hand-holding-usd feature-icon"></i>
+                </div>
+                
+                <!-- Cards de benefícios -->
+                <div class="feature-grid animated-fade-in-up delay-2">
+                    <div class="feature-item card">
+                        <i class="fas fa-percent feature-icon-small"></i>
+                        <p class="feature-text">Antecipe seu Saque-Aniversário com as **melhores taxas** do mercado.</p>
+                    </div>
+                    <div class="feature-item card">
+                        <i class="fas fa-user-lock feature-icon-small"></i>
+                        <p class="feature-text">Processo **100% digital e seguro**, sem burocracia.</p>
+                    </div>
+                </div>
+
+                <!-- Botão de ação principal -->
+                <div class="action-buttons-container animated-fade-in-up delay-3">
+                    <button id="startButton" class="main-button interactive primary-orange">
+                        <i class="fas fa-play-circle"></i> Começar Agora!
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- ===== TELA 2: AUTORIZAR ===== -->
+        <!-- ============================== -->
+        <div id="auth-page" class="app-page">
+            <header class="app-header">
+                <button class="back-button interactive" data-target="welcome-page"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="header-title">Autorizar FGTS</h2>
+                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
+            </header>
+            <div class="page-content">
+                <div class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Siga os passos no app da CAIXA</h3>
+                    <p class="page-subtitle">Autorize nosso sistema a consultar seu saldo para continuarmos.</p>
+
+                    <div class="step-card animated-slide-in-right delay-1">
+                        <div class="step-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="step-content">
+                            <h4>1. Acesse o App Oficial</h4>
+                            <p>Abra o aplicativo FGTS e vá para "Saque-Aniversário".</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card animated-slide-in-right delay-2">
+                        <div class="step-icon"><i class="fas fa-exchange-alt"></i></div>
+                        <div class="step-content">
+                            <h4>2. Modalidade</h4>
+                            <p>Confirme a modalidade de "Saque-Aniversário" ou altere se necessário.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card animated-slide-in-right delay-3">
+                        <div class="step-icon"><i class="fas fa-lock-open"></i></div>
+                        <div class="step-content">
+                            <h4>3. Autorize o Banco</h4>
+                            <p>Em "Autorizar bancos a consultarem seu FGTS", adicione "Saque Aqui S.A."</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box-lg animated-fade-in-up delay-4">
+                        <i class="fas fa-info-circle"></i>
+                        <p><strong>Atenção:</strong> A autorização é apenas para consulta. Você não será cobrado por isso.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-bottom-bar animated-slide-in-up delay-5">
+                <button id="authButton" class="main-button interactive" data-target="simulation-page">
+                    <i class="fas fa-check-circle"></i> Já Autorizei
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- ===== TELA 3: SIMULAÇÃO ===== -->
+        <!-- ============================== -->
+        <div id="simulation-page" class="app-page">
+            <header class="app-header">
+                <button class="back-button interactive" data-target="auth-page"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="header-title">Simular Saque</h2>
+                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
+            </header>
+            <div class="page-content">
+                <!-- Formulário de CPF -->
+                <div id="cpfSimulationGroup" class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Simule seu Saque</h3>
+                    <p class="page-subtitle">Para que nosso sistema consulte seu saldo, insira seu CPF.</p>
+                    <div class="input-floating">
+                        <input type="tel" id="cpfSimulation" placeholder=" " maxlength="14" required>
+                        <label for="cpfSimulation">CPF</label>
+                        <span id="cpfSimulationFeedback" class="input-feedback"></span>
+                    </div>
+                </div>
+
+                <!-- Animação de Carregamento (Oculto) -->
+                <div id="loadingIndicator" class="loading-card animated-fade-in-up">
+                    <div class="loading-spinner-container">
+                        <div class="spinner-core"></div>
+                        <div class="spinner-ring ring-1"></div>
+                        <div class="spinner-ring ring-2"></div>
+                        <div class="spinner-ring ring-3"></div>
+                    </div>
+                    <p class="loading-text">Processando sua solicitação...</p>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <p id="loadingSteps" class="progress-step-text"></p>
+                    </div>
+                </div>
+
+                <!-- Resultado da Simulação (Oculto) -->
+                <div id="simulationOutcomeMessage" class="outcome-card animated-fade-in-up">
+                    <i id="outcomeIcon" class="outcome-icon"></i>
+                    <h3 id="outcomeTitle"></h3>
+                    <p id="outcomeText"></p>
+                    <div id="actionButtonsContainer" class="action-buttons-container">
+                        <!-- Botões gerados dinamicamente via JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botão de simulação -->
+            <div id="bottomButtonContainer" class="fixed-bottom-bar animated-slide-in-up">
+                <button id="simulateCpfButton" class="main-button interactive">
+                    <i class="fas fa-search-dollar"></i> Simular Saque
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================== -->
+        <!-- ===== TELA 4: DADOS FINAIS ===== -->
+        <!-- ============================== -->
+        <div id="finaldata-page" class="app-page">
+            <header class="app-header">
+                <button class="back-button interactive" data-target="simulation-page"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="header-title">Finalizar Solicitação</h2>
+                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
+            </header>
+            <div class="page-content">
+                <div class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Quase lá!</h3>
+                    <p class="page-subtitle">Preencha os dados abaixo para que nosso especialista entre em contato via WhatsApp e finalize seu saque.</p>
+
+                    <div class="input-floating">
+                        <input type="tel" id="cpf" placeholder=" " maxlength="14">
+                        <label for="cpf">CPF</label>
+                        <span id="cpfFeedback" class="input-feedback"></span>
+                    </div>
+                    
+                    <div class="input-floating">
+                        <input type="date" id="dob" placeholder=" ">
+                        <label for="dob">Data de Nascimento</label>
+                        <span id="dobFeedback" class="input-feedback"></span>
+                    </div>
+
+                    <div class="input-floating">
+                        <input type="tel" id="phone" placeholder=" " maxlength="16">
+                        <label for="phone">Celular</label>
+                        <span id="phoneFeedback" class="input-feedback"></span>
+                    </div>
+
+                    <div class="info-box-lg animated-fade-in-up delay-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <p>Suas informações são **100% seguras** e usadas apenas para processar sua solicitação.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="fixed-bottom-bar animated-slide-in-up">
+                <button id="finalizeWhatsappButton" class="main-button interactive primary-orange">
+                    <i class="fab fa-whatsapp"></i> Finalizar via WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <!-- ==================================== -->
+        <!-- ===== TELA 5: POLÍTICA DE PRIVACIDADE ===== -->
+        <!-- ==================================== -->
+        <div id="privacy-page" class="app-page">
+            <header class="app-header">
+                <button class="back-button interactive" data-target="welcome-page"><i class="fas fa-arrow-left"></i></button>
+                <h2 class="header-title">Política de Privacidade</h2>
+                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
+            </header>
+            <div class="page-content privacy-content">
+                <div class="page-card animated-fade-in-up">
+                    <p>A sua privacidade é de extrema importância para nós. A **Saque Aqui** está comprometida em proteger os dados pessoais que você compartilha conosco.</p>
+                    
+                    <h4>1. Coleta de Dados</h4>
+                    <p>Coletamos apenas as informações estritamente necessárias para a simulação e finalização da sua solicitação de antecipação do Saque-Aniversário do FGTS, incluindo CPF, data de nascimento e número de telefone.</p>
+                    
+                    <h4>2. Uso dos Dados</h4>
+                    <p>Os dados coletados são utilizados exclusivamente para:</p>
+                    <ul>
+                        <li>Realizar a consulta de saldo do seu FGTS com a sua autorização prévia;</li>
+                        <li>Entrar em contato via WhatsApp para finalizar o processo de antecipação;</li>
+                        <li>Cumprir obrigações legais e regulatórias.</li>
+                    </ul>
+                    
+                    <h4>3. Segurança</h4>
+                    <p>Implementamos medidas de segurança técnicas e administrativas para proteger suas informações contra acesso não autorizado, uso indevido e divulgação. A transmissão de dados é criptografada para garantir a confidencialidade.</p>
+                    
+                    <h4>4. Compartilhamento de Dados</h4>
+                    <p>Nós não vendemos, alugamos ou compartilhamos suas informações pessoais com terceiros para fins de marketing. O compartilhamento ocorre apenas com as instituições financeiras parceiras, com o seu consentimento, para a efetivação do serviço de antecipação do FGTS.</p>
+                    
+                    <h4>5. Consentimento</h4>
+                    <p>Ao utilizar nosso aplicativo, você concorda com a coleta e uso de suas informações conforme descrito nesta política. Esta política pode ser atualizada periodicamente, e a versão mais recente estará sempre disponível aqui.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link para o JavaScript -->
+    <script src="js/scripts.js"></script>
+</body>
+</html>
