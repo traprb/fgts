@@ -13,26 +13,6 @@
 </head>
 <body class="mobile-app">
 
-    <!-- Menu de navegação lateral (Sidebar) -->
-    <nav id="nav-menu" class="nav-menu">
-        <header class="nav-header">
-            <h3 class="nav-title">Saque Aqui</h3>
-            <button class="menu-toggle-close interactive"><i class="fas fa-times"></i></button>
-        </header>
-        <ul class="nav-list">
-            <li><a href="#" class="nav-link interactive" data-target="welcome-page"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="#" class="nav-link interactive" data-target="simulation-page"><i class="fas fa-search-dollar"></i> Simular Saque</a></li>
-            <li><a href="#" class="nav-link interactive" data-target="finaldata-page"><i class="fas fa-check-circle"></i> Finalizar Solicitação</a></li>
-            <li><a href="#" class="nav-link interactive" data-target="privacy-page"><i class="fas fa-user-shield"></i> Política de Privacidade</a></li>
-        </ul>
-        <div class="nav-footer">
-            <button id="whatsappSupport" class="main-button interactive"><i class="fab fa-whatsapp"></i> Suporte WhatsApp</button>
-        </div>
-    </nav>
-
-    <!-- Overlay para o menu lateral -->
-    <div id="menu-overlay" class="menu-overlay"></div>
-
     <!-- Container principal que simula a tela do celular -->
     <main class="mobile-container">
         
@@ -80,9 +60,7 @@
         <!-- ============================== -->
         <div id="auth-page" class="app-page">
             <header class="app-header">
-                <button class="back-button interactive" data-target="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Autorizar FGTS</h2>
-                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
             </header>
             <div class="page-content">
                 <div class="page-card animated-fade-in-up">
@@ -109,13 +87,13 @@
                         <div class="step-icon"><i class="fas fa-lock-open"></i></div>
                         <div class="step-content">
                             <h4>3. Autorize os Bancos</h4>
-                            <p>Em "Autorizar bancos a consultarem seu FGTS", adicione 1-Banco Digimais, 2-J17 Sociedade de Crédito e Saque Aqui S.A.</p>
+                            <p>Em "Autorizar bancos a consultarem seu FGTS", adicione Banco Digimais, J17 Sociedade de Crédito e Saque Aqui S.A.</p>
                         </div>
                     </div>
 
                     <div class="info-box-lg animated-fade-in-up delay-4">
                         <i class="fas fa-info-circle"></i>
-                        <p><strong>Atenção:</strong> A autorização é apenas para consulta. Você não será cobrado por isso.</p>
+                        <p>Atenção: A autorização é apenas para consulta. Você não será cobrado por isso.</p>
                     </div>
                 </div>
             </div>
@@ -131,9 +109,7 @@
         <!-- ============================== -->
         <div id="simulation-page" class="app-page">
             <header class="app-header">
-                <button class="back-button interactive" data-target="auth-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Simular Saque</h2>
-                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
             </header>
             <div class="page-content">
                 <!-- Formulário de CPF -->
@@ -174,13 +150,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Botão de simulação -->
-            <div id="bottomButtonContainer" class="fixed-bottom-bar animated-slide-in-up">
-                <button id="simulateCpfButton" class="main-button interactive primary-dark-blue">
-                    <i class="fas fa-search-dollar"></i> Simular Saque
-                </button>
-            </div>
         </div>
 
         <!-- ============================== -->
@@ -188,9 +157,7 @@
         <!-- ============================== -->
         <div id="finaldata-page" class="app-page">
             <header class="app-header">
-                <button class="back-button interactive" data-target="simulation-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Finalizar Solicitação</h2>
-                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
             </header>
             <div class="page-content">
                 <div class="page-card animated-fade-in-up">
@@ -229,13 +196,47 @@
         </div>
 
         <!-- ==================================== -->
-        <!-- ===== TELA 5: POLÍTICA DE PRIVACIDADE ===== -->
+        <!-- ===== TELA 5: VIDEO ANIVERSARIO ===== -->
+        <!-- ==================================== -->
+        <div id="video-aniversario-page" class="app-page">
+            <header class="app-header">
+                <h2 class="header-title">Modalidade Aniversário</h2>
+            </header>
+            <div class="page-content video-content">
+                <div class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Como optar pelo Saque-Aniversário</h3>
+                    <p class="page-subtitle">Assista ao vídeo para entender como alterar sua modalidade no App do FGTS.</p>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/imKR9uWGZn0?si=0Cx5bHNpiG5m9mlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================== -->
+        <!-- ===== TELA 6: VIDEO AUTORIZACAO ===== -->
+        <!-- ==================================== -->
+        <div id="video-autorizacao-page" class="app-page">
+            <header class="app-header">
+                <h2 class="header-title">Autorização de Financeiras</h2>
+            </header>
+            <div class="page-content video-content">
+                <div class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Como autorizar os bancos</h3>
+                    <p class="page-subtitle">Veja o passo a passo para autorizar as financeiras no App do FGTS.</p>
+                    <div class="video-wrapper">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/bzKhuwaIqjI?si=LLNMXybNPSXYXKfl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================== -->
+        <!-- ===== TELA 7: POLÍTICA DE PRIVACIDADE ===== -->
         <!-- ==================================== -->
         <div id="privacy-page" class="app-page">
             <header class="app-header">
-                <button class="back-button interactive" data-target="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Política de Privacidade</h2>
-                <button class="menu-toggle-open interactive"><i class="fas fa-bars"></i></button>
             </header>
             <div class="page-content privacy-content">
                 <div class="page-card animated-fade-in-up">
@@ -264,6 +265,31 @@
             </div>
         </div>
     </main>
+
+    <!-- Barra de navegação fixa inferior -->
+    <nav class="nav-bottom">
+        <button class="nav-item interactive" data-target="welcome-page">
+            <i class="fas fa-home nav-icon"></i>
+            <span class="nav-label">Início</span>
+        </button>
+        <button class="nav-item interactive" data-target="simulation-page">
+            <i class="fas fa-search-dollar nav-icon"></i>
+            <span class="nav-label">Simular</span>
+        </button>
+        <button class="nav-item interactive" data-target="video-aniversario-page">
+            <i class="fas fa-calendar-alt nav-icon"></i>
+            <span class="nav-label">Aniversário</span>
+        </button>
+        <button class="nav-item interactive" data-target="video-autorizacao-page">
+            <i class="fas fa-user-lock nav-icon"></i>
+            <span class="nav-label">Autorização</span>
+        </button>
+        <button class="nav-item interactive" data-target="privacy-page">
+            <i class="fas fa-user-shield nav-icon"></i>
+            <span class="nav-label">Privacidade</span>
+        </button>
+    </nav>
+
 
     <!-- Link para o JavaScript -->
     <script src="js/scripts.js"></script>
