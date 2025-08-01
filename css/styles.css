@@ -80,6 +80,14 @@ body.mobile-app {
     padding-bottom: 90px; /* Espaço para a barra de botões fixa e a navegação inferior */
 }
 
+/* Centraliza o conteúdo da página de simulação para evitar desalinhamento */
+.app-page .page-content.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 /* --- Títulos e Subtítulos --- */
 h1, h2, h3, h4 {
     font-family: var(--font-title);
@@ -369,6 +377,8 @@ h1, h2, h3, h4 {
     align-items: center;
     text-align: center;
     padding: 50px 24px;
+    /* Garante que o card ocupe o espaço e mantenha o alinhamento central */
+    width: 100%; 
 }
 .loading-spinner-container {
     width: 90px;
@@ -439,6 +449,13 @@ h1, h2, h3, h4 {
 .outcome-card .success-icon { color: var(--success-color); }
 .outcome-card .error-icon { color: var(--error-color); }
 
+.action-buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 24px;
+}
 
 /* --- Estilos dos passos de instrução (auth.html) --- */
 .step-card {
