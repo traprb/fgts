@@ -292,7 +292,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             actionButtonsContainer.appendChild(whatsappSupportButtonLocal);
 
                             const tryAgainButton = document.createElement('button');
-                            tryAgainButton.className = 'main-button interactive primary-orange';
+                            // Botão "Tentar Novamente" agora é azul
+                            tryAgainButton.className = 'main-button interactive primary-dark-blue';
                             tryAgainButton.innerHTML = '<i class="fas fa-redo-alt"></i> Tentar Novamente';
                             tryAgainButton.addEventListener('click', () => {
                                 applyClickEffect(tryAgainButton);
