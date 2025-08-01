@@ -60,6 +60,7 @@
         <!-- ============================== -->
         <div id="auth-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Autorizar FGTS</h2>
             </header>
             <div class="page-content">
@@ -109,6 +110,7 @@
         <!-- ============================== -->
         <div id="simulation-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="auth-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Simular Saque</h2>
             </header>
             <div class="page-content">
@@ -120,6 +122,11 @@
                         <input type="tel" id="cpfSimulation" placeholder=" " maxlength="14" required>
                         <label for="cpfSimulation">CPF</label>
                         <span id="cpfSimulationFeedback" class="input-feedback"></span>
+                    </div>
+                    <div class="action-buttons-container">
+                         <button id="simulateCpfButton" class="main-button interactive primary-orange">
+                            <i class="fas fa-search"></i> Simular Agora
+                        </button>
                     </div>
                 </div>
 
@@ -157,6 +164,7 @@
         <!-- ============================== -->
         <div id="finaldata-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="simulation-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Finalizar Solicitação</h2>
             </header>
             <div class="page-content">
@@ -200,14 +208,22 @@
         <!-- ==================================== -->
         <div id="video-aniversario-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Modalidade Aniversário</h2>
             </header>
             <div class="page-content video-content">
                 <div class="page-card animated-fade-in-up">
                     <h3 class="page-title">Como optar pelo Saque-Aniversário</h3>
-                    <p class="page-subtitle">Assista ao vídeo para entender como alterar sua modalidade no App do FGTS.</p>
+                    <p class="page-subtitle">Assista ao vídeo e siga os passos para habilitar a modalidade no App do FGTS.</p>
                     <div class="video-wrapper">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/imKR9uWGZn0?si=0Cx5bHNpiG5m9mlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="info-box-lg animated-fade-in-up delay-1">
+                        <i class="fas fa-info-circle"></i>
+                        <div>
+                            <h4>Por que optar?</h4>
+                            <p>A modalidade Saque-Aniversário permite que você retire uma parte do seu saldo do FGTS anualmente, no mês do seu aniversário. Com essa modalidade, você pode antecipar até 10 parcelas do seu saque com a gente.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -218,6 +234,7 @@
         <!-- ==================================== -->
         <div id="video-autorizacao-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Autorização de Financeiras</h2>
             </header>
             <div class="page-content video-content">
@@ -226,6 +243,13 @@
                     <p class="page-subtitle">Veja o passo a passo para autorizar as financeiras no App do FGTS.</p>
                     <div class="video-wrapper">
                         <iframe width="560" height="315" src="https://www.youtube.com/embed/bzKhuwaIqjI?si=LLNMXybNPSXYXKfl" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+                    <div class="info-box-lg animated-fade-in-up delay-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <h4>O que é a autorização?</h4>
+                            <p>Essa autorização é fundamental para que possamos consultar seu saldo e apresentar uma proposta de antecipação. É um processo 100% seguro e não compromete seu dinheiro. Apenas a consulta é liberada para os bancos que você autorizar.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -236,10 +260,12 @@
         <!-- ==================================== -->
         <div id="privacy-page" class="app-page">
             <header class="app-header">
+                <button class="back-button interactive" data-prev-page="welcome-page"><i class="fas fa-arrow-left"></i></button>
                 <h2 class="header-title">Política de Privacidade</h2>
             </header>
             <div class="page-content privacy-content">
                 <div class="page-card animated-fade-in-up">
+                    <h3 class="page-title">Compromisso com a sua Segurança</h3>
                     <p>A sua privacidade é de extrema importância para nós. A Saque Aqui está comprometida em proteger os dados pessoais que você compartilha conosco.</p>
                     
                     <h4>1. Coleta de Dados</h4>
