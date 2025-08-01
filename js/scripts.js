@@ -10,6 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'auth-page': document.getElementById('auth-page'),
         'simulation-page': document.getElementById('simulation-page'),
         'finaldata-page': document.getElementById('finaldata-page'),
+        'video-aniversario-page': document.getElementById('video-aniversario-page'),
+        'video-autorizacao-page': document.getElementById('video-autorizacao-page'),
         'privacy-page': document.getElementById('privacy-page')
     };
     let currentPageId = 'welcome-page';
@@ -34,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
         nextPage.classList.add('active');
         currentPageId = pageId;
 
+        // Atualiza o estado da navegação inferior
+        updateNavBar(pageId);
+
         // Atualiza o histórico do navegador para o botão de voltar funcionar
         if (pushState) {
             window.history.pushState({ page: pageId }, '', `#${pageId}`);
@@ -51,6 +56,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    /**
+     * Atualiza o estado visual da barra de navegação inferior.
+     * @param {string} activePageId - O ID da página ativa.
+     */
+    const updateNavBar = (activePageId) => {
+        const navItems = document.querySelectorAll('.nav-bottom .nav-item');
+        navItems.forEach(item => {
+            item.classList.remove('active');
+            if (item.getAttribute('data-target') === activePageId) {
+                item.classList.add('active');
+            }
+        });
+        // A navegação inferior não deve ser visível na tela de boas-vindas
+        const navBottom = document.querySelector('.nav-bottom');
+        if (activePageId === 'welcome-page') {
+            navBottom.style.display = 'none';
+        } else {
+            navBottom.style.display = 'flex';
+        }
+    };
+
     // Inicializa a página correta com base na URL
     const initialPage = window.location.hash.substring(1) || 'welcome-page';
     navigateTo(initialPage, false);
@@ -63,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Mapeamento de Elementos ---
     const startButton = document.getElementById('startButton');
     const authButton = document.getElementById('authButton');
-    const backButtons = document.querySelectorAll('.back-button');
     const simulateCpfButton = document.getElementById('simulateCpfButton');
     const finalizeWhatsappButton = document.getElementById('finalizeWhatsappButton');
 
@@ -80,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const outcomeText = document.getElementById('outcomeText');
     const outcomeIcon = document.getElementById('outcomeIcon');
     const actionButtonsContainer = document.getElementById('actionButtonsContainer');
-    const bottomButtonContainer = document.getElementById('bottomButtonContainer');
+    const bottomButtonContainer = document.querySelector('#auth-page .fixed-bottom-bar, #finaldata-page .fixed-bottom-bar');
 
     const cpfInput = document.getElementById('cpf');
     const dobInput = document.getElementById('dob');
@@ -89,12 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const dobFeedback = document.getElementById('dobFeedback');
     const phoneFeedback = document.getElementById('phoneFeedback');
 
-    const navMenu = document.getElementById('nav-menu');
-    const menuOpenButtons = document.querySelectorAll('.menu-toggle-open');
-    const menuCloseButton = document.querySelector('.menu-toggle-close');
-    const menuLinks = document.querySelectorAll('.nav-link');
-    const menuOverlay = document.getElementById('menu-overlay');
-    const whatsappSupportButton = document.getElementById('whatsappSupport');
+    const navBottomItems = document.querySelectorAll('.nav-bottom .nav-item');
+
 
     // --- Funções de Máscara ---
     const applyCpfMask = (inputElement) => {
@@ -148,16 +169,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     };
 
-    // --- Gerenciamento do Menu Lateral ---
-    const openMenu = () => {
-        navMenu.classList.add('active');
-        document.body.classList.add('menu-open');
-    };
-    const closeMenu = () => {
-        navMenu.classList.remove('active');
-        document.body.classList.remove('menu-open');
-    };
-
     // --- Event Listeners ---
     if (startButton) {
         startButton.addEventListener('click', () => {
@@ -172,69 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => { navigateTo('simulation-page'); }, 300);
         });
     }
-
-    if (backButtons) {
-        backButtons.forEach(button => {
-            button.addEventListener('click', (event) => {
-                event.preventDefault();
-                applyClickEffect(button);
-                const targetPage = button.getAttribute('data-target');
-                setTimeout(() => {
-                    if (targetPage) {
-                        navigateTo(targetPage);
-                    } else {
-                        window.history.back();
-                    }
-                }, 200);
-            });
-        });
-    }
-
-    if (menuOpenButtons) {
-        menuOpenButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                applyClickEffect(button);
-                openMenu();
-            });
-        });
-    }
-
-    if (menuCloseButton) {
-        menuCloseButton.addEventListener('click', () => {
-            applyClickEffect(menuCloseButton);
-            closeMenu();
-        });
-    }
-
-    if (menuOverlay) {
-        menuOverlay.addEventListener('click', () => {
-            closeMenu();
-        });
-    }
-
-    if (menuLinks) {
-        menuLinks.forEach(link => {
-            link.addEventListener('click', (event) => {
-                event.preventDefault();
-                applyClickEffect(link);
-                const targetPage = link.getAttribute('data-target');
-                setTimeout(() => {
-                    closeMenu();
-                    navigateTo(targetPage);
-                }, 300);
-            });
-        });
-    }
-
-    if (whatsappSupportButton) {
-        whatsappSupportButton.addEventListener('click', (event) => {
+    
+    // Event listeners para a nova navegação inferior
+    navBottomItems.forEach(item => {
+        item.addEventListener('click', (event) => {
             event.preventDefault();
-            applyClickEffect(whatsappSupportButton);
-            const phoneNumber = '5511978311920';
-            const message = encodeURIComponent(`Olá, gostaria de falar com a equipe de suporte sobre o aplicativo Saque Aqui.`);
-            setTimeout(() => { window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank'); }, 200);
+            applyClickEffect(item);
+            const targetPage = item.getAttribute('data-target');
+            setTimeout(() => {
+                navigateTo(targetPage);
+            }, 300);
         });
-    }
+    });
 
     if (simulateCpfButton) {
         applyCpfMask(cpfSimulationInput);
@@ -254,7 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Inicia a animação de simulação
             cpfSimulationGroup.style.display = 'none';
-            bottomButtonContainer.style.display = 'none';
             simulationOutcomeMessage.style.display = 'none';
             loadingIndicator.style.display = 'flex';
             
@@ -322,14 +281,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             actionButtonsContainer.appendChild(whatsappSupportButtonLocal);
 
                             const tryAgainButton = document.createElement('button');
-                            tryAgainButton.className = 'main-button interactive';
+                            tryAgainButton.className = 'main-button interactive primary-orange';
                             tryAgainButton.innerHTML = '<i class="fas fa-redo-alt"></i> Tentar Novamente';
                             tryAgainButton.addEventListener('click', () => {
                                 applyClickEffect(tryAgainButton);
                                 setTimeout(() => {
                                     simulationOutcomeMessage.style.display = 'none';
                                     cpfSimulationGroup.style.display = 'block';
-                                    bottomButtonContainer.style.display = 'flex';
                                     cpfSimulationInput.value = '';
                                     cpfSimulationInput.focus();
                                 }, 300);
