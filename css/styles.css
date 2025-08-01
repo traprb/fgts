@@ -4,6 +4,8 @@
 /* Variáveis de Cores (Tema Next-Gen App) */
 :root {
     --primary-dark: #001f3f;       /* Azul marinho profundo */
+    --primary-dark-blue: #004d99;  /* Azul mais escuro para botões */
+    --primary-dark-blue-hover: #003366; /* Azul escuro para hover */
     --primary-accent: #007bff;     /* Azul vibrante para detalhes */
     --primary-orange: #ff5722;     /* Laranja para ação principal */
     --secondary-orange: #e64a19;   /* Laranja mais escuro para hover */
@@ -96,8 +98,8 @@ h1, h2, h3, h4 {
     color: var(--primary-dark);
     margin: 0;
 }
-.app-title { font-size: 2.5rem; text-align: center; }
-.app-subtitle { font-size: 1rem; text-align: center; color: var(--text-secondary); }
+.app-title { font-size: 2.5rem; text-align: center; color: var(--card-background); }
+.app-subtitle { font-size: 1rem; text-align: center; color: rgba(255, 255, 255, 0.8); padding: 0 10px;}
 .header-title { font-size: 1.3rem; text-align: center; flex-grow: 1; margin: 0 10px; }
 .page-title { font-size: 1.8rem; text-align: center; margin-bottom: 8px; }
 .page-subtitle { font-size: 1rem; text-align: center; color: var(--text-secondary); margin-bottom: 24px; }
@@ -123,6 +125,19 @@ h1, h2, h3, h4 {
     box-shadow: none;
     padding-top: 50px;
     padding-bottom: 80px;
+    position: relative;
+    color: var(--card-background);
+    z-index: 1;
+}
+.welcome-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #001f3f 0%, #173f6f 100%);
+    z-index: -1;
+    animation: gradient-shift 10s ease-in-out infinite;
 }
 .hero-icon {
     position: relative;
@@ -132,25 +147,13 @@ h1, h2, h3, h4 {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: var(--primary-orange);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--primary-orange);
 }
-.hero-svg {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-15deg);
-    width: 100px;
-    height: 100px;
-}
-.hero-svg .money-icon {
-    animation: floating-money 3s infinite ease-in-out;
-}
-.hero-svg .money-1 { animation-delay: 0.1s; }
-.hero-svg .money-2 { animation-delay: 0.3s; }
-.hero-svg .money-3 { animation-delay: 0.5s; }
 .feature-icon {
-    position: absolute;
     font-size: 4rem;
-    color: var(--primary-orange);
+    color: var(--card-background);
     animation: pulse 2s infinite ease-in-out;
 }
 .feature-grid {
@@ -158,21 +161,28 @@ h1, h2, h3, h4 {
     gap: 16px;
     margin-top: 32px;
     margin-bottom: 32px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 .feature-item {
-    flex: 1;
+    flex: 1 1 150px; /* Adapta-se a telas menores */
     text-align: center;
     padding: 20px;
 }
+.feature-item.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
 .feature-icon-small {
     font-size: 2.5rem;
-    color: var(--primary-accent);
+    color: var(--primary-orange);
     margin-bottom: 12px;
-    animation: pulse 2s infinite ease-in-out;
+    animation: bounce 2s infinite ease-in-out;
 }
 .feature-text {
     font-size: 0.9rem;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.5;
 }
 
@@ -196,6 +206,12 @@ h1, h2, h3, h4 {
 }
 .main-button.primary-orange {
     background: linear-gradient(135deg, var(--primary-orange), var(--secondary-orange));
+}
+.main-button.primary-dark-blue {
+    background: linear-gradient(135deg, var(--primary-dark-blue), var(--primary-dark-blue-hover));
+}
+.main-button.primary-dark-blue:hover {
+    background: linear-gradient(135deg, var(--primary-dark-blue-hover), var(--primary-dark-blue));
 }
 .main-button:hover {
     transform: translateY(-3px);
@@ -515,10 +531,12 @@ h1, h2, h3, h4 {
 @keyframes animatedFadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes animatedSlideInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.1); } 100% { transform: scale(1); } }
+@keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes animatedFadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes floating-money {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-5px) rotate(5deg); }
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .animated-fade-in-down { animation: animatedFadeInDown 0.6s ease-in-out forwards; opacity: 0; }
