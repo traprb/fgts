@@ -41,22 +41,12 @@
         <!-- ============================== -->
         <div id="welcome-page" class="app-page active">
             <div class="welcome-card animated-fade-in-down">
+                <div class="welcome-background"></div>
                 <h1 class="app-title">Saque Aqui</h1>
-                <p class="app-subtitle">Sua antecipação de FGTS simples e rápida</p>
+                <p class="app-subtitle">Antecipe seu FGTS de forma simples e rápida com as melhores taxas do mercado.</p>
                 
                 <!-- Animação do ícone -->
                 <div class="hero-icon animated-fade-in-up delay-1">
-                    <svg viewBox="0 0 100 100" class="hero-svg">
-                        <defs>
-                            <linearGradient id="moneyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#28a745;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#1c7430;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <path class="money-icon money-1" d="M70,30 L75,25 L70,20 L65,25 Z" fill="url(#moneyGradient)"/>
-                        <path class="money-icon money-2" d="M30,40 L35,35 L30,30 L25,35 Z" fill="url(#moneyGradient)"/>
-                        <path class="money-icon money-3" d="M55,60 L60,55 L55,50 L50,55 Z" fill="url(#moneyGradient)"/>
-                    </svg>
                     <i class="fas fa-hand-holding-usd feature-icon"></i>
                 </div>
                 
@@ -64,11 +54,15 @@
                 <div class="feature-grid animated-fade-in-up delay-2">
                     <div class="feature-item card">
                         <i class="fas fa-percent feature-icon-small"></i>
-                        <p class="feature-text">Antecipe seu Saque-Aniversário com as **melhores taxas** do mercado.</p>
+                        <p class="feature-text">As **melhores taxas** para você.</p>
                     </div>
                     <div class="feature-item card">
                         <i class="fas fa-user-lock feature-icon-small"></i>
-                        <p class="feature-text">Processo **100% digital e seguro**, sem burocracia.</p>
+                        <p class="feature-text">Processo **100% digital** e seguro.</p>
+                    </div>
+                    <div class="feature-item card">
+                        <i class="fas fa-bolt feature-icon-small"></i>
+                        <p class="feature-text">Dinheiro na sua conta em **24h úteis**.</p>
                     </div>
                 </div>
 
@@ -92,7 +86,7 @@
             </header>
             <div class="page-content">
                 <div class="page-card animated-fade-in-up">
-                    <h3 class="page-title">Siga os passos no app da CAIXA</h3>
+                    <h3 class="page-title">Siga os passos no App FGTS</h3>
                     <p class="page-subtitle">Autorize nosso sistema a consultar seu saldo para continuarmos.</p>
 
                     <div class="step-card animated-slide-in-right delay-1">
@@ -114,8 +108,8 @@
                     <div class="step-card animated-slide-in-right delay-3">
                         <div class="step-icon"><i class="fas fa-lock-open"></i></div>
                         <div class="step-content">
-                            <h4>3. Autorize o Banco</h4>
-                            <p>Em "Autorizar bancos a consultarem seu FGTS", adicione "Saque Aqui S.A."</p>
+                            <h4>3. Autorize os Bancos</h4>
+                            <p>Em "Autorizar bancos a consultarem seu FGTS", adicione **Banco Digimais**, **J17 Sociedade de Crédito** e **Saque Aqui S.A.**</p>
                         </div>
                     </div>
 
@@ -126,7 +120,7 @@
                 </div>
             </div>
             <div class="fixed-bottom-bar animated-slide-in-up delay-5">
-                <button id="authButton" class="main-button interactive" data-target="simulation-page">
+                <button id="authButton" class="main-button interactive primary-dark-blue">
                     <i class="fas fa-check-circle"></i> Já Autorizei
                 </button>
             </div>
@@ -183,7 +177,7 @@
 
             <!-- Botão de simulação -->
             <div id="bottomButtonContainer" class="fixed-bottom-bar animated-slide-in-up">
-                <button id="simulateCpfButton" class="main-button interactive">
+                <button id="simulateCpfButton" class="main-button interactive primary-dark-blue">
                     <i class="fas fa-search-dollar"></i> Simular Saque
                 </button>
             </div>
