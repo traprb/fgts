@@ -115,15 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
         inputElement.addEventListener('input', (e) => {
             let value = e.target.value.replace(/\D/g, '');
             let formattedValue = '';
-            if (value.length > 0) {
-                formattedValue += '(' + value.substring(0, 2);
-                if (value.length > 2) {
-                    if (value.length >= 7 && value.length <= 11) {
-                        formattedValue += ') ' + value.substring(2, (value.length === 11 ? 7 : 6));
-                        if (value.length > (value.length === 11 ? 7 : 6)) formattedValue += '-' + value.substring((value.length === 11 ? 7 : 6), 11);
-                    }
-                }
-            }
+            if (value.length > 0) formattedValue += '(' + value.substring(0, 2);
+            if (value.length >= 3) formattedValue += ') ' + value.substring(2, 7);
+            if (value.length >= 8) formattedValue += '-' + value.substring(7, 11);
             e.target.value = formattedValue;
         });
     };
@@ -362,18 +356,26 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!isValidCPF(cpf)) {
                 cpfFeedback.textContent = 'CPF inválido. Verifique o número.';
                 cpfFeedback.style.display = 'block';
-                isValid = false; cpfInput.focus();
+                isValid = false;
             } else { cpfFeedback.style.display = 'none'; }
             if (!dob) {
                 dobFeedback.textContent = 'Informe sua data de nascimento.';
                 dobFeedback.style.display = 'block';
-                isValid = false; dobInput.focus();
+                isValid = false;
             } else { dobFeedback.style.display = 'none'; }
             if (phone.length < 10 || phone.length > 11) {
                 phoneFeedback.textContent = 'Telefone inválido. Formato: (XX) XXXX-XXXX ou (XX) 9XXXX-XXXX';
                 phoneFeedback.style.display = 'block';
-                isValid = false; phoneInput.focus();
+                isValid = false;
             } else { phoneFeedback.style.display = 'none'; }
+
+            if (!isValid) {
+                // Se a validação falhar, foca no primeiro campo inválido
+                if (!isValidCPF(cpf)) { cpfInput.focus(); }
+                else if (!dob) { dobInput.focus(); }
+                else if (phone.length < 10 || phone.length > 11) { phoneInput.focus(); }
+                return;
+            }
 
             if (isValid) {
                 const formattedCpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
